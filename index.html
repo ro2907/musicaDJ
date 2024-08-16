@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to Text with ChatGPT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        video, canvas, img {
+            max-width: 100%;
+            margin-top: 20px;
+        }
+        #response {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 500px;
+        }
+        textarea {
+            width: 80%;
+            max-width: 500px;
+            margin-top: 20px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image to Text with ChatGPT</h1>
+    
+    <!-- Opciones de entrada -->
+    <video id="video" autoplay></video>
+    <button id="capture">Capture Photo</button>
+    <input type="file" id="upload" accept="image/*">
+    <img id="uploadedImage" style="display: none;" alt="Uploaded Image">
+    
+    <canvas id="canvas" style="display: none;"></canvas>
+    
+    <!-- Área de texto para editar el texto extraído -->
+    <textarea id="extractedText" placeholder="El texto extraído aparecerá aquí..."></textarea>
+    <button id="sendToChatGPT">Send to ChatGPT</button>
+
+    <div id="response"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
